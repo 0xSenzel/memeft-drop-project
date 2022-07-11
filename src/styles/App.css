@@ -1,13 +1,15 @@
 .App {
   height: 100vh;
-  background-color: #0d1116;
+  width: 100%;
+  overflow: scroll;
+  background-image: url("src/assets/foodbg.jpg");
+  background-size:cover;
   overflow: scroll;
   text-align: center;
 }
 
 .container {
   height: 100%;
-  background-color: #0d1116;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -26,6 +28,7 @@
 .sub-text {
   font-size: 25px;
   color: white;
+  font-weight: bold;
 }
 
 .gradient-text {
@@ -81,6 +84,7 @@
 .twitter-logo {
   width: 35px;
   height: 35px;
+  margin: 5px;
 }
 
 .footer-text {
@@ -122,4 +126,13 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+.mining {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
 }
