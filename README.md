@@ -1,61 +1,89 @@
-# memeFT Dinner
-## A simple Dapp for user to mint randomly generated character and colour of NFT
+# Wave Portal Dapp
 
-### PREVIEW:
+This repo contains coursework project from [buildspace](https://buildspace.so/) completed by [0xsenzel](https://github.com/0xSenzel/) for [Build your own NFT Collection](https://buildspace.so/builds) lesson.
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/62827213/178413561-4eb8de08-525e-46d5-9e69-10222f2878c1.PNG" width=60% height=30%>
-</p>
-<p align="center">
-    <em>Dapp Landing Page</em>
-</p>
+## Project Info
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/62827213/178413732-d31934a8-2d7b-4ba0-88ff-8bd24fe7e928.PNG" width=60% height=30%>
-</p>
-<p align="center">
-    <em>After Connecting Wallet</em>
-</p>
+Project for user to mint customized on-chain NFT that generated randomly to output different dinner menu😋.
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/62827213/178413912-e69f1b59-7a55-48d4-818c-cb3c945a4a18.PNG" width=60% height=30%>
-</p>
-<p align="center">
-    <em>Minting</em>
-</p>
+## Project Demo
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/62827213/178413920-46d2ca2a-70b7-4e87-b6b0-f80dddcaf25c.PNG" width=60% height=30%>
-</p>
-<p align="center">
-    <em>Completed Minting Process</em>
-</p>
+<figure>
+<img src="./my-app/public/demo1.PNG" alt="demo1" style="width:100%">
+<p align="center">Fig.1 - Home Page</p>
+</figure>
 
-[Live Preview](https://drop-me-msg.janus9.repl.co) 
+<br/>
 
-[OpenSea NFT Viewing Site](https://testnets.opensea.io/collection/dinnertime) 
+<figure>
+<img src="./my-app/public/demo2.PNG" alt="demo2" style="width:100%">
+<p align="center">Fig.2 - Connected with wallet</p>
+</figure>
+
+<br/>
+
+<figure>
+<img src="./my-app/public/demo3.PNG" alt="demo3" style="width:100%">
+<p align="center">Fig.3 - When user minting NFT</p>
+</figure>
+
+<br/>
+
+<figure>
+<img src="./my-app/public/demo4.PNG" alt="demo4" style="width:100%">
+<p align="center">Fig.4 - Example of minted NFT</p>
+</figure>
+
+<br/>
 
 ## Project Setup
+
+### Hardhat
+
+Head to [smart-contracts](./smart-contracts) folder:
+
+Install dependencies
+
 ```
-npm init -y
-npm install --save-dev hardhat
-npm hardhat
+npm install
 ```
-### HardHat Environment
-Compiling Smart Contract
+
+Compile smart contract
+
 ```
 npx hardhat compile
 ```
-Deploying to your local Hardhat Blockchain
-1. Start a Hardhat Node
-   ```
-   npx hardhat node
-   ```
-2. Deploy Smart Contract in `localhost` or `rinkeby` network
-    ```
-    npx hardhat run --network localhost scripts/deploy.js
-    ```
-    ```
-    npx hardhat run --network rinkeby scripts/deploy.js
-    ```
 
+To deploy smart contracts: <br/>
+Head to [hardhat.config.js](./smart-contracts/hardhat.config.js) file, change the value of:
+
+- `ALCHEMY_HTTP_URL` with your own Ethereum Network API
+- `PRIVATE_KEY` with your Ethereum wallet's private key
+- `API_KEY` with your Etherscan's API Key
+
+Then run the following command.
+
+```
+npx hardhat run scripts/deploy.js --network goerli
+npx hardhat verify --network goerli YOUR_SMARTCONTRACT_ADDRESS "CONSTRUCTOR ARG1" "CONSTRUCTOR ARG2"
+```
+
+<br/>
+
+### React Js
+
+Head to [my-app](./my-app/) folder:
+
+```
+npm install
+```
+
+Replace the variable inside [this file](./my-app/src/App.js):
+
+- Line14 `CONTRACT_ADDRESS` variable with your own deployed contract address.
+
+To run the app locally:
+
+```
+npm run start
+```
